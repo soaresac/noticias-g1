@@ -1,0 +1,33 @@
+<header class="fixed-top">
+    <nav class="navbar navbar-light bg-light pb-0 pt-0">
+        <ul class="nav nav-tabs font-weight-bold">
+            <li class="nav-item">
+                <a class="nav-link text-primary" (click)="loadCategory('mundo')">Mundo</a>
+            </li>
+            <li>
+                <a class="nav-link" (click)="loadCategory('política')">Política</a>
+            </li>
+            <li>
+                <a class="nav-link" (click)="loadCategory('entretenimento')">Entretenimento</a>
+            </li>
+            <li>
+                <a class="nav-link" (click)="loadCategory('vídeos')">Vídeos</a>
+            </li>
+            <li class="d-none">
+                <a id="categoria-busca" class="nav-link" (click)="loadCategory('busca')">Busca</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="navbar navbar-dark bg-primary d-flex justify-content-between">
+        <h1 class="text-white w-100 text-center d-inline-block"> {{category}}</h1>
+        <app-search class="position-absolute" style="right: 0" 
+            (onTyping)="filter = $event" [value]=filter> 
+        </app-search>
+    </div>
+    
+    <div>
+        <app-loading></app-loading>
+    </div>
+</header>
+

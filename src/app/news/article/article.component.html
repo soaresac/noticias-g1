@@ -1,0 +1,5 @@
+<div class="container" *ngIf="article$ | async as article" style="max-width: 960px;">
+    <h1 class="display-4 font-weight-bold mt-5">{{article.title}}</h1>
+    <h2 class="h5 text-muted font-weight-lighter">{{article.relatedtext}}</h2>
+
+</div>

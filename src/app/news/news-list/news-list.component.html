@@ -1,0 +1,32 @@
+<p class="text-center text-muted pt-4" *ngIf="!news.length">
+  Não existem notícias para serem exibidas!
+</p>
+<div class="container">
+  <div class="row">
+    <ol class="list-unstyled col-8">
+      <li class="row no-gutters">
+        <div *ngFor="let n of news" class="col-12">
+          <div class="row mt-4 mb-4 pb-4 border-bottom">
+            <div class="col-5">
+              <a [routerLink]="['/p', n.id]">
+                <img class="w-100" src="{{ n.url }}"
+                *ngIf="n.url.endsWith('.png') || n.url.endsWith('.jpg'); else videoTemplate"/>
+
+                <ng-template #videoTemplate>
+                  <video appAutoplayOnHover class="w-100" loop="" src="{{ n.url }}"></video>
+                </ng-template>
+              </a>
+            </div>
+            <div class="col-7">
+              <a [routerLink]="['/p', n.id]" class="h4"><strong>{{ n.title }}</strong></a>
+              <p class="text-muted">{{ n.relatedtext }}</p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <div class="col-4"></div>
+</div>
+
+<app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    padding-top: 114px;
+}
+$theme-colors: (
+    "primary":    #ef5643,
+    "secondary":   #82ef43
+);
+
+$font-family-sans-serif: opensans,opensans-bastian,Arial,sans-serif;
+
+@import "bootstrap";
